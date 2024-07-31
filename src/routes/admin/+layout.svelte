@@ -38,7 +38,9 @@
                     </ul>
                 </li>
             </ul>
-            <a href="/?/logout" class="nav-link">Выйти</a>
+            <form method="POST" action="/?/logout">
+                <button type="submit" class="btn btn-outline-primary">Выйти из аккаунта</button>
+            </form>
         </div>
     </div>
 </nav>

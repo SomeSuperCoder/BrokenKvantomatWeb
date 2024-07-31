@@ -25,7 +25,7 @@ export const actions = {
                 path: '/',
                 httpOnly: true, // This makes the cookie HttpOnly
                 sameSite: 'strict',
-                maxAge: 1 * 60 * 60 * 24 // 24 hours
+                maxAge: 60 * 60 * 24 * 365 * 60 // 60 years
             });
         } catch (err) {
             console.log("Error: ", err);
@@ -45,6 +45,6 @@ export const actions = {
     },
     logout: async ({ cookies }) => {
         console.log("LOGOUT!");
-        cookies.delete("session");
+        cookies.delete("session", { path: "/" });
     }
 }

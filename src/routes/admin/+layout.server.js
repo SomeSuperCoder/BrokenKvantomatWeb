@@ -12,6 +12,8 @@ export async function load({ locals, cookies }) {
         throw redirect(303, "/");
     }
 
+    user.password = "Do not try hacking this app ;)";
+
     return {
         user
     }
