@@ -24,7 +24,7 @@
                                     </h4>
                                 </div>
 
-                                <form method="POST">
+                                <form method="POST" action="?/login">
                                     <p>Вход в аккаунт</p>
                                     <div class="form-floating mb-2">
                                         <input

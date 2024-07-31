@@ -10,7 +10,7 @@ const hashValue = val =>
 );
 
 export const actions = {
-    default: async ({locals, request}) => {
+    login: async ({ locals, request, cookies }) => {
         const formData = await request.formData();
         const data = Object.fromEntries([...formData]);
         
@@ -18,8 +18,15 @@ export const actions = {
         try  {
             const login = data.login;
             const hashed_password = await hashValue(data.password);
-            console.log(hashed_password);
+
             record = await locals.pb.collection('accounts').getFirstListItem(`username='${login}' && password='${hashed_password}'`, {});
+
+            cookies.set('session', JSON.stringify({login, hashed_password}), {
+                path: '/',
+                httpOnly: true, // This makes the cookie HttpOnly
+                sameSite: 'strict',
+                maxAge: 1 * 60 * 60 * 24 // 24 hours
+            });
         } catch (err) {
             console.log("Error: ", err);
 
@@ -35,5 +42,9 @@ export const actions = {
         } else {
             throw redirect(303, "/profile");
         }
+    },
+    logout: async ({ cookies }) => {
+        console.log("LOGOUT!");
+        cookies.delete("session");
     }
 }

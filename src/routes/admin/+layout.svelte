@@ -38,6 +38,7 @@
                     </ul>
                 </li>
             </ul>
+            <a href="/?/logout" class="nav-link">Выйти</a>
         </div>
     </div>
 </nav>
