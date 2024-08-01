@@ -11,7 +11,7 @@ export async function POST({ request, cookies, locals }) {
     }
 
     const body = await request.json();
-    await locals.pb.collection('account').delete(body.target);
-
+    const result = await locals.pb.collection('accounts').delete(body.target);
+    
     return new Response();
 };

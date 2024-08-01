@@ -13,7 +13,7 @@
         goto(thisPage);
     }
 
-    let balance = data.edit_account.balance;
+    let balance = data.edit_account?.balance ?? 0;
 
     let give_amount = 0;
     let take_amount = 0;
@@ -73,8 +73,10 @@
     }
 </script>
 
-{#if data.error}
-    <h1>Пользователь не найден</h1>
+{#if data.error || data.edit_account.role != "user"}
+    <div class="container">
+        <h1>Пользователь не найден</h1>
+    </div>
 {:else}
     <div class="container">
         <div class="mt-5"></div>
