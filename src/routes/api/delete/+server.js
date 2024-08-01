@@ -1,6 +1,6 @@
 import { get_current_user } from '../../../lib/auth.js';
 
-export async function DELETE({ request, cookies, locals }) {
+export async function POST({ request, cookies, locals }) {
     let user = await get_current_user(locals, cookies);
 
     if (!user) {
@@ -11,8 +11,7 @@ export async function DELETE({ request, cookies, locals }) {
     }
 
     const body = await request.json();
-
-    await locals.pb.collection('transactions').delete(body.target);
+    await locals.pb.collection('account').delete(body.target);
 
     return new Response();
 };

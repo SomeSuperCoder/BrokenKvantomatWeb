@@ -4,11 +4,12 @@
     export let launch_button_text;
     export let apply_button_text;
     export let func;
+    export let danger = false;
 </script>
 
 <button
     type="button"
-    class="btn btn-primary"
+    class="btn btn-{danger ? "danger" : "primary"}"
     data-bs-toggle="modal"
     data-bs-target="#{modal_id}"
 >
@@ -39,9 +40,9 @@
             <div class="modal-footer">
                 <button
                     type="button"
-                    class="btn btn-secondary"
+                    class="btn btn-{!danger ? "danger" : "primary"}"
                     data-bs-dismiss="modal">Закрыть</button>
-                <button data-bs-dismiss="modal" type="button" class="btn btn-primary" on:click={func}>{apply_button_text}</button>
+                <button data-bs-dismiss="modal" type="button" class="btn btn-{danger ? "danger" : "primary"}" on:click={func}>{apply_button_text}</button>
             </div>
         </div>
     </div>
