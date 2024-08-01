@@ -1,8 +1,8 @@
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ locals, params }) {
-    let account;
+    let edit_account;
     try {
-        account = await locals.pb.collection('accounts').getFirstListItem(`username="${params.username}"`);
+        edit_account = await locals.pb.collection('accounts').getFirstListItem(`username="${params.username}"`);
     } catch (err) {
         console.log("Error: ", err);
         return {
@@ -12,6 +12,6 @@ export async function load({ locals, params }) {
 
     return {
         error: false,
-        account
+        edit_account
     };
 };

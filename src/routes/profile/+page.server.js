@@ -7,7 +7,7 @@ export async function load({ locals, cookies }) {
     if (!user) {
         throw redirect(303, "/");
     }
-    if (user.role === "admin" || user.role === "moderator") {
+    if (user.role === "admin" || user.role === "moder") {
         throw redirect(303, "/admin");
     }
 

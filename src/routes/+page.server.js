@@ -37,7 +37,7 @@ export const actions = {
             }
         }
         
-        if (record.role === "admin" || record.role === "moderator") {
+        if (record.role === "admin" || record.role === "moder") {
             throw redirect(303, "/admin");
         } else {
             throw redirect(303, "/profile");

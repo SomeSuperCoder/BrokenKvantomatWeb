@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg custom-navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Квантомат <span class="badge web_text">Web</span></a>
+        <a class="navbar-brand" href="#"
+            >Квантомат <span class="badge web_text">Web</span></a
+        >
         <button
             class="navbar-toggler"
             type="button"
@@ -31,25 +33,70 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="#">Глобальный рейтинг</a>
+                            <a class="dropdown-item" href="#"
+                                >Глобальный рейтинг</a
+                            >
                         </li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#">Мои ученики</a></li>
+                        <li>
+                            <a class="dropdown-item" href="#">Мои ученики</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
             <form method="POST" action="/?/logout">
-                <button type="submit" class="btn btn-outline-primary">Выйти из аккаунта</button>
+                <button type="submit" class="btn btn-outline-light"
+                    >Выйти из аккаунта</button
+                >
             </form>
         </div>
     </div>
 </nav>
 
+<slot></slot>
+
 <style>
+    .custom-navbar {
+        background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    }
+
+    .custom-navbar .navbar-brand {
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    .custom-navbar .nav-link {
+        color: #ffffff;
+        transition: color 0.3s;
+    }
+
+    .custom-navbar .nav-link:hover {
+        color: #ffdd57; /* Bright yellow on hover */
+    }
+
+    .custom-navbar .dropdown-menu {
+        background-color: #ffffff;
+    }
+
+    .custom-navbar .dropdown-item {
+        color: #333333;
+    }
+
+    .custom-navbar .dropdown-item:hover {
+        background-color: #f8f9fa; /* Light grey on hover */
+    }
+
+    .custom-navbar .btn-outline-light {
+        border-color: #ffffff;
+        color: #ffffff;
+    }
+
+    .custom-navbar .btn-outline-light:hover {
+        background-color: #ffffff;
+        color: #6a11cb; /* Match the gradient */
+    }
+
     .web_text {
         background-color: orange;
     }
 </style>
-
-<slot></slot>
-
